@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "372682241444",
+    "project_id": "gruaya",
+    "storage_bucket": "gruaya.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:372682241444:android:adc08127ac3a6bb1917d31",
+        "android_client_info": {
+          "package_name": "com.example.gruaya"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdxOs-acYusUbhOTw7QHc8AVzqTRXlM3Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
