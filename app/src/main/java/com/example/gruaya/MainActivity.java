@@ -20,7 +20,8 @@ import com.google.firebase.messaging.FirebaseMessaging;
 public class MainActivity extends AppCompatActivity {
     Button btnlogin;
     Button btnregister;
-    EditText tokenf;
+    EditText tokenff;
+    String tokenf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         btnlogin = findViewById(R.id.login);
         btnregister = findViewById(R.id.register);
-        tokenf = findViewById(R.id.tokenfirebase);
+        tokenff = findViewById(R.id.tokenfirebase);
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
                     @Override
@@ -42,19 +43,15 @@ public class MainActivity extends AppCompatActivity {
                         // Log and toast
                         System.out.println(token);
                         Toast.makeText(MainActivity.this, "Your device registracion token is: "+token, Toast.LENGTH_SHORT).show();
-                        tokenf.setText(token);
+                        tokenf=token;
+                        tokenff.setText(token);
                     }
                 });
-        btnlogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-    //            Intent intent = new Intent(this, )
-            }
-        });
         btnregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, registerActivity.class);
+                intent.putExtra("tokenf",tokenf);
                 startActivity(intent);
             }
         });
@@ -62,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                intent.putExtra("tokenf",tokenf);
                 startActivity(intent);
             }
         });

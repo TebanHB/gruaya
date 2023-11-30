@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     Button register,login;
     TextView texterror;
     EditText email,password;
+    String tokenf;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,6 +100,12 @@ public class LoginActivity extends AppCompatActivity {
                 Map<String, String> params = new HashMap<>();
                 params.put("password",password.getText().toString());
                 params.put("email",email.getText().toString());
+                Intent intent = getIntent();
+                if (intent != null && intent.hasExtra("tokenf")) {
+                    tokenf = intent.getStringExtra("tokenf");
+                    params.put("tokenf",tokenf);
+                    System.out.println("Se acaba de enviar el token: "+tokenf);
+                }
                 return params;
             }
         };
